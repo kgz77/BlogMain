@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Посты</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+</head>
+<body>
+
+    <nav class="navbar is-info">
+        <div class="navbar-brand">
+            <a href="/" class="navbar-item"><strong>Пост</strong></a>
+            <a href="{% url 'login'%}" class="navbar-item"><strong>Авторизация</strong></a>
+            <a href="{% url 'login'%}" class="navbar-item"><strong>Регистрация</strong></a>
+
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </section>
+</body>
+</html>

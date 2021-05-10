@@ -1,0 +1,42 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+        <h1 class="title">{{ post.Название }}</h1>
+        <small>Опубликовано: {{ post.date_abbed }}</small>
+        <p><strong>{{post.Вступление }}</strong></p>
+        <p>{{ post.Текст }}</p>
+
+        <hr>
+                <h2>Комментарии</h2>
+                {% for comment in post.comments.all %}
+                <article class="media">
+                        <div class="media-content">
+                                <div class="content">
+                                       <p>
+                                               <strong>{{comment.Имя}}</strong> <small>{{comment.date_abbed}}</small>
+                                               <br>
+                                               {{comment.Текст}}
+                                       </p>
+                                </div>
+                        </div>
+                </article>
+                {% empty %}
+                <div class="notification">
+                        <p>Пока комментариев нет</p>
+                </div>
+                {%endfor%}
+        <hr>
+
+        <h2 class="subtitle">Добавить комментарий</h2>
+
+        <form method="post" action=".">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="field">
+                        <div class="control">
+                                <button class="button is-success">Добавить</button>
+
+                        </div>
+                </div>
+        </form>
+{% endblock %}

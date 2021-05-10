@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post block">
+            <h2 class="subtitle">{{ post.Название }}</h2>
+
+            <small>Опубликовано : {{ post.date_abbed }}</small>
+            <p>{{ post.Вступление }}</p>
+            <a href="{% url 'post_detail' post.slug%}">Читать подробнее</a>
+        </div>
+    {% endfor %}
+{% endblock %}
